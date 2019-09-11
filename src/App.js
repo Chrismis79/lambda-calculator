@@ -21,7 +21,7 @@ const addNumber = (number) => {
   setDisplayValue(displayValue => displayValue + number)
 };
 const addOperator = (operator) => {
-  if(operator === '='){
+  if(operator === "="){
     setDisplayValue(displayValue => eval(displayValue));
   }else {
     setDisplayValue(displayValue=> displayValue + " " + operator + " ");
@@ -31,12 +31,16 @@ const addOperator = (operator) => {
   return (
     <div className="container">
       <Logo />
+      <Display number={displayValue} />
       <div className="App">
         {/* STEP 4 - Render your components here and be sure to properly import/export all files */}
-        <Display number={displayValue} />
+        
+        <div className="specials_numbers_container">
         <Specials />
-        <Operators addOperator={addOperator} />
+        
         <Numbers addNumber ={addNumber}/>
+        </div>
+        <Operators addOperator={addOperator} />
       </div>
     </div>
   );
